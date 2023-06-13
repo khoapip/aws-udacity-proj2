@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { Request, Response, NextFunction } from 'express';
+
 
 (async () => {
 
@@ -31,8 +33,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   //! END @TODO1
 
-    app.get("/filteredimage",async(req,res)=>{
-    let image_url  = req.query.image_url;
+    app.get("/filteredimage",async(req : Request,res : Response)=>{
+    let image_url: string = req.query.image_url;
     
     //Soft validate
     if(image_url == null||image_url==undefined)
