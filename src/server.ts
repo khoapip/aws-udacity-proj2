@@ -40,7 +40,7 @@ import { Request, Response, NextFunction } from 'express';
     if(image_url == null||image_url==undefined)
       return res.status(400).send("No URL found");
     else{
-        const image = await filterImageFromURL(image_url+ "");
+        const image : string = await filterImageFromURL(image_url+ "");
         if(image===undefined||image===null)
            return res.status(400).send("Error in filtering images");
         else
